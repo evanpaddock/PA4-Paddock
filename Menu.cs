@@ -27,6 +27,7 @@ namespace PA4
                 System.Console.WriteLine("3: AI vs AI");
                 choice = Console.ReadLine();
             }
+            GamePlay.RunGame(choice);
         }
         static private void TitleScreen(){
             string s = "Battle of Calypso's Maelstrom";

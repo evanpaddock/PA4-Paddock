@@ -5,18 +5,21 @@ namespace PA4
 {
     public class GamePlay
     {
-        static public string BuyOneNoGetOneFree(){
+        static public void SinglePlayerName(ref string player1){
             System.Console.WriteLine("What is your name brave challenger?");
-            return Console.ReadLine();
+            player1 = Console.ReadLine();
         }
-        static public void BuyOneGetOneFree(ref string player1, ref string player2){
-            System.Console.WriteLine("What is the name of the first brave challenger?");
+        static public void TwoPlayerNames(ref string player1, ref string player2){
+            System.Console.WriteLine("\nWhat is the name of the first brave challenger?");
             player1 = Console.ReadLine();
 
-            System.Console.WriteLine("What is the name of the second brave challenger?");
+            Console.Clear();
+
+            System.Console.WriteLine("\nWhat is the name of the second brave challenger?");
             player2 = Console.ReadLine();
         }
         static public void RunGame(string choice){
+            Console.Clear();
             switch(choice){
                 case "1":
                     PvAi();
@@ -31,13 +34,16 @@ namespace PA4
         }
         private static void PvAi()
         {
-            System.Console.WriteLine("Player vs Ai");
+            string player1 = "";
+            SinglePlayerName(ref player1);
+
         }
         private static void PvP()
         {   string player1 = "";
             string player2 = "";
 
-            BuyOneGetOneFree(ref player1, ref player2);
+            TwoPlayerNames(ref player1, ref player2);
+
 
         }
         private static void AiVsAi()
