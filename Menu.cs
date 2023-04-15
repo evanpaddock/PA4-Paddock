@@ -15,7 +15,7 @@ namespace PA4
             System.Console.WriteLine("2: Double Player");
             System.Console.WriteLine("3: AI vs AI");
             string choice = Console.ReadLine();
-            while(ValidMainMenuOption(choice)){
+            while(ValidMenuOption(choice)){
                 Console.Clear();
 
                 TitleScreen();
@@ -36,7 +36,7 @@ namespace PA4
             Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
             System.Console.Write(s);
         }
-        static public bool ValidMainMenuOption(string choice){
+        static public bool ValidMenuOption(string choice){
             switch(choice){
                 case "1":
                     return false;
@@ -48,5 +48,21 @@ namespace PA4
                     return true; 
             }
         } 
+        static public string FightMenu(){
+            System.Console.WriteLine("1: Attack");
+            System.Console.WriteLine("2: Defend");
+            System.Console.WriteLine("3: View Characters Stats");
+            string choice =  Console.ReadLine();
+
+            while(ValidMenuOption(choice)){
+                System.Console.WriteLine("\nInvalid choice, please choose again.");
+                System.Console.WriteLine("1: Attack");
+                System.Console.WriteLine("2: Defend");
+                System.Console.WriteLine("3: View Characters Stats");
+
+                choice =  Console.ReadLine();
+            }
+            return choice;
+        }
     }
 }

@@ -2,7 +2,7 @@ using PA4.Interfaces;
 
 namespace PA4.Attacks
 {
-    public class CannonBall : ISpecial
+    public class Cannon : ISpecial
     {
         public void Attack()
         {

@@ -11,7 +11,7 @@ namespace PA4.Classes
             attackStrength = new Random().Next(1,maxPower);
             defensivePower = new Random().Next(1,maxPower);
             attackBonusPlayer = "Jack Sparrow";
-            Weapon = new CannonBall();
+            Weapon = new Cannon();
         }
     }
 }
