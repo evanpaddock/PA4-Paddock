@@ -1,11 +1,6 @@
 ﻿using PA4;
+using PA4.Utilities;
 
-Menu.AllCharacters();
-Menu.WriteAllCharacters();
-// string gameChoice = Menu.DaMainMenu();
+CharacterUtility.ReadAllCharacters();
 
-// while(Menu.CanYouRead(gameChoice)){
-//     gameChoice = Menu.DaMainMenu();
-// }
-
-// GamePlay.RunGame(gameChoice);
+Menu.MainMenu();
