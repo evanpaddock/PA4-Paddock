@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "a8cqZmt8iOnwOUGfHXlK7uUb9/XV5GeuN5s85WfdhhETYYFzPmqkOtP5NcuG/FPC+JRd82zuM3jIFq+GI7m5pA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Evan Paddock\\Desktop\\MIS_321\\PA4\\PA4.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Evan Paddock\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.13\\microsoft.netcore.app.ref.6.0.13.nupkg.sha512",
+    "C:\\Users\\Evan Paddock\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.13\\microsoft.windowsdesktop.app.ref.6.0.13.nupkg.sha512",
+    "C:\\Users\\Evan Paddock\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.13\\microsoft.aspnetcore.app.ref.6.0.13.nupkg.sha512",
+    "C:\\Users\\Evan Paddock\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.13\\microsoft.netcore.app.host.win-x64.6.0.13.nupkg.sha512"
+  ],
+  "logs": []
+}

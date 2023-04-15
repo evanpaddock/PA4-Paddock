@@ -1,0 +1,15 @@
+C:\Users\Evan Paddock\Desktop\MIS_321\PA4\bin\Debug\net6.0\PA4.exe
+C:\Users\Evan Paddock\Desktop\MIS_321\PA4\bin\Debug\net6.0\PA4.deps.json
+C:\Users\Evan Paddock\Desktop\MIS_321\PA4\bin\Debug\net6.0\PA4.runtimeconfig.json
+C:\Users\Evan Paddock\Desktop\MIS_321\PA4\bin\Debug\net6.0\PA4.dll
+C:\Users\Evan Paddock\Desktop\MIS_321\PA4\bin\Debug\net6.0\PA4.pdb
+C:\Users\Evan Paddock\Desktop\MIS_321\PA4\obj\Debug\net6.0\PA4.csproj.AssemblyReference.cache
+C:\Users\Evan Paddock\Desktop\MIS_321\PA4\obj\Debug\net6.0\PA4.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Evan Paddock\Desktop\MIS_321\PA4\obj\Debug\net6.0\PA4.AssemblyInfoInputs.cache
+C:\Users\Evan Paddock\Desktop\MIS_321\PA4\obj\Debug\net6.0\PA4.AssemblyInfo.cs
+C:\Users\Evan Paddock\Desktop\MIS_321\PA4\obj\Debug\net6.0\PA4.csproj.CoreCompileInputs.cache
+C:\Users\Evan Paddock\Desktop\MIS_321\PA4\obj\Debug\net6.0\PA4.dll
+C:\Users\Evan Paddock\Desktop\MIS_321\PA4\obj\Debug\net6.0\refint\PA4.dll
+C:\Users\Evan Paddock\Desktop\MIS_321\PA4\obj\Debug\net6.0\PA4.pdb
+C:\Users\Evan Paddock\Desktop\MIS_321\PA4\obj\Debug\net6.0\PA4.genruntimeconfig.cache
+C:\Users\Evan Paddock\Desktop\MIS_321\PA4\obj\Debug\net6.0\ref\PA4.dll
