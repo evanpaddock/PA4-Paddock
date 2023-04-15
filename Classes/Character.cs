@@ -11,6 +11,8 @@ namespace PA4.Classes
         public int defensivePower;
         public string attackBonusPlayer;
         public ISpecial Weapon;
-
+        static public int maxCharacters = 10;
+        static public int allCharactersCount;
+        static public string[] allCharacters;
     }
 }
