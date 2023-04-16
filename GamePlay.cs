@@ -23,7 +23,7 @@ namespace PA4
 
             Console.Clear();
         }
-        static public void RunGame(string choice){
+        static public void RunOption(string choice){
             Console.Clear();
             switch(choice){
                 case "1":
@@ -34,6 +34,12 @@ namespace PA4
                 break;
                 case "3":
                     AiVsAi();
+                break;
+                case "4":
+                    GameUtility.CreateCharacterClass();
+                break;
+                case "5":
+                    GameUtility.CreateWeaponClass();
                 break;
             }
         }

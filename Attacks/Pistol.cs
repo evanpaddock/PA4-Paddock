@@ -6,7 +6,7 @@ namespace PA4.Attacks
     {
         public void Attack()
         {
-            System.Console.Write(" shoots his pistol at ");
+            System.Console.Write(" shoots their pistol at ");
         }
     }
 }
