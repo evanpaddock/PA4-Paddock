@@ -5,4 +5,6 @@ using PA4.Utilities;
 CharacterUtility.ReadAllCharacters();
 CharacterUtility.ReadAllWeapons();
 
+Menu.PlayMusic();
+
 Menu.MainMenu();

@@ -14,16 +14,43 @@ namespace PA4.Utilities
             CharacterUtility.WriteAllCharacters();
             string attackBonusAgainst = Console.ReadLine();
 
+            bool isNotValidCharacter = CharacterUtility.IsValidCharacter(attackBonusAgainst);
+            while(isNotValidCharacter){
+                Console.Clear();
+
+                Console.Clear();
+                System.Console.WriteLine("Invalid choice, please try again.\n");
+                System.Console.WriteLine("Who will this character receive a bonus when fighting against?");
+                System.Console.WriteLine("These are all the current characters:\n");
+                CharacterUtility.WriteAllCharacters();
+
+                attackBonusAgainst = Console.ReadLine();
+                isNotValidCharacter = CharacterUtility.IsValidCharacter(attackBonusAgainst);
+            }
+
             Console.Clear();
             System.Console.WriteLine("What weapon will they use?");
             System.Console.WriteLine("These are all the current weapons:\n");
             CharacterUtility.WriteAllWeapons();
-            string weapon = Console.ReadLine();
+            string weaponChoice = Console.ReadLine();
+            bool isNotValidWeapon = CharacterUtility.isValidWeapon(weaponChoice);
+            while(isNotValidWeapon){
+                Console.Clear();
+
+                System.Console.WriteLine("Invalid choice, please try again.\n");
+                System.Console.WriteLine("What weapon will they use?");
+                System.Console.WriteLine("These are all the current weapons:\n");
+
+                CharacterUtility.WriteAllWeapons();
+
+                weaponChoice = Console.ReadLine();
+                isNotValidWeapon = CharacterUtility.isValidWeapon(weaponChoice);
+            }
 
             Console.Clear();
             string className = characterName.Replace(" ", "");
 
-            CharacterUtility.CreateNewCharacterClass(className, characterName, attackBonusAgainst, weapon);
+            CharacterUtility.CreateNewCharacterClass(className, characterName, attackBonusAgainst, weaponChoice);
         }
         static public void CreateWeaponClass(){
             Console.Clear();

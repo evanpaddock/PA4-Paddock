@@ -104,12 +104,10 @@ namespace PA4.Utilities
             ";
 
             File.WriteAllText("./CharacterClasses/" + className + ".cs", classCode);
-            
         }
         static public void CreateNewWeaponClass(string weaponName, string attackText){
-            string className = weaponName.ToLower().Replace(" ", "");
+            string className = weaponName.Replace(" ", "");
             className = char.ToUpper(className[0]) + className.Substring(1);
-            attackText = attackText.ToLower();
             
             string classCode = 
             @"
@@ -128,6 +126,24 @@ namespace PA4.Utilities
             ";
 
             File.WriteAllText("./Attacks/" + className + ".cs", classCode);
+        }
+        public static bool isValidWeapon(string choice){
+            bool isNotValid = true;
+            foreach(string weapon in CharacterUtility.allWeapons){
+                if(choice == weapon){
+                    isNotValid = false;
+                }
+            }
+            return isNotValid;
+        }
+        public static bool IsValidCharacter(string choice){
+            bool isNotValid = true;
+            foreach(string character in CharacterUtility.allCharacters){
+                if(choice == character){
+                    isNotValid = false;
+                }
+            }
+            return isNotValid;
         }
     }
 }

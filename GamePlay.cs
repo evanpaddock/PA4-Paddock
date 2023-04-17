@@ -28,19 +28,38 @@ namespace PA4
             switch(choice){
                 case "1":
                     PvAi();
+                    Menu.MainMenu();
                 break;
                 case "2":
                     PvP();
+                    Menu.MainMenu();
                 break;
                 case "3":
                     AiVsAi();
+                    Menu.MainMenu();
                 break;
                 case "4":
                     GameUtility.CreateCharacterClass();
+                    System.Console.WriteLine("\nRestart the game for this class to be useable!");
+                    Console.ReadKey();
+                    Menu.MainMenu();
                 break;
                 case "5":
                     GameUtility.CreateWeaponClass();
+                    System.Console.WriteLine("\nRestart the game for this weapon to be useable!");
+                    Console.ReadKey();
+                    Menu.MainMenu();
                 break;
+                case "6":
+                    Menu.ChooseMusic();
+                    Menu.MainMenu();
+                break;
+                case "7":
+                    Console.Clear();
+                    System.Console.WriteLine("Thank you for playing!");
+                break;
+
+                
             }
         }
         private static void PvAi()
@@ -90,26 +109,17 @@ namespace PA4
 
             choice = Console.ReadLine();
 
-            bool isNotValid = IsValidCharacter(choice);
+            bool isNotValid = CharacterUtility.IsValidCharacter(choice);
             while(isNotValid){
                 Console.Clear();
                 System.Console.WriteLine("Invalid choose, please choose again.\n");
                 CharacterUtility.WriteAllCharacters();
 
                 choice = Console.ReadLine();
-                isNotValid = IsValidCharacter(choice);
+                isNotValid = CharacterUtility.IsValidCharacter(choice);;
             }
 
             Console.Clear();
-        }
-        private static bool IsValidCharacter(string choice){
-            bool isNotValid = true;
-            foreach(string character in CharacterUtility.allCharacters){
-                if(choice == character){
-                    isNotValid = false;
-                }
-            }
-            return isNotValid;
         }
         private static Character CreateCharacter(string characterName){
 
@@ -134,28 +144,42 @@ namespace PA4
         }
         private static void Fight(){
             string choice;
+
+            if(FightData.player1Character.attackBonusPlayer == FightData.player2Character.name){
+                FightData.player1Character.attackStrength += FightData.player1Character.attackStrength / 5;
+            }
+            if(FightData.player2Character.attackBonusPlayer == FightData.player1Character.name){
+                FightData.player2Character.attackStrength += FightData.player2Character.attackStrength / 5;
+            }
+
             while(FightData.player1Character.health > 0 && FightData.player2Character.health > 0){
                 System.Console.WriteLine(FightData.player1Name + ", choose what you will do.\n");
                 choice = Menu.FightMenu();
-                RunFightSelection(choice);
+                RunFightSelection(choice, FightData.player1Character, FightData.player2Character);
+                if(FightData.player2Name != "AI"){
+                    System.Console.WriteLine(FightData.player2Name + ", choose what you will do.\n");
+                    choice = Menu.FightMenu();
+                    RunFightSelection(choice, FightData.player2Character, FightData.player1Character);
+                }else{
+                    
+                }
             }
             
         }
-        private static void RunFightSelection(string choice){
+        private static void RunFightSelection(string choice, Character attacker, Character defender){
             Console.Clear();
            switch(choice){
             case "1":
-                Attack();
+                Attack(attacker, defender);
             break;
             case "2":
-                Defend();
+                Defend(attacker);
             break;
             case "3":
                 Stats();
             break;
            } 
         }
-
         private static void Stats()
         {
             System.Console.WriteLine(FightData.player1Name + ",\n");
@@ -167,18 +191,29 @@ namespace PA4
             FightData.player2Character.CharacterStats();
 
             Console.ReadKey();
-
         }
-
-        private static void Defend()
+        private static void Defend(Character character1)
         {
-            System.Console.WriteLine("Defend");
-            Console.ReadKey();
+            // int defenseGained = 
+            // System.Console.WriteLine("Gains 20 defen");
+            // character1.defensivePower += new Random().Next(1,31);
+            // Console.ReadKey();
         }
-
-        private static void Attack()
+        private static void Attack(Character attacker, Character defender)
         {
-            System.Console.WriteLine("Attack");
+            Console.Write(attacker.name);
+            attacker.Weapon.Attack();
+            System.Console.Write(defender.name + "\n");
+
+            int damageDealt = defender.defensivePower - attacker.attackStrength;
+
+            if(damageDealt < 0){
+                System.Console.WriteLine($"That dealt {Math.Abs(damageDealt)} damage!");
+                defender.health += damageDealt;
+            }else{
+                System.Console.WriteLine("The attack was not strong enough to do damage!");
+            }
+            
             Console.ReadKey();
         }
     } 

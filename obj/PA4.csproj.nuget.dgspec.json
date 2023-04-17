@@ -41,6 +41,10 @@
             "Microsoft.CodeAnalysis.CSharp": {
               "target": "Package",
               "version": "[4.5.0, )"
+            },
+            "System.Windows.Extensions": {
+              "target": "Package",
+              "version": "[7.0.0, )"
             }
           },
           "imports": [
