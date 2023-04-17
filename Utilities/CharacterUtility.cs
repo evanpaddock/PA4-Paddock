@@ -81,26 +81,27 @@ namespace PA4.Utilities
             }
         }
         static public void CreateNewCharacterClass(string className, string characterName, string attackBonusAgainst, string weaponType){
-            
+            weaponType = weaponType.Replace(" ", "");
+
             string classCode = 
             @"
-            using PA4.AbstractClasses;
-            using PA4.Attacks;
-            namespace PA4.Classes
+using PA4.AbstractClasses;
+using PA4.Attacks;
+namespace PA4.Classes
+{
+    public class " + className + @" : Character
+        {
+            public " + className + @"()
             {
-                public class " + className + @" : Character
-                    {
-                        public " + className + @"()
-                        {
-                            name = "+ '"' + characterName + '"' + @";
-                            health = 100;
-                            attackStrength = new Random().Next(1,maxPower);
-                            defensivePower = new Random().Next(1,maxPower);
-                            attackBonusPlayer = "+ '"' + attackBonusAgainst + '"' + @";
-                            Weapon = new " + weaponType + @"();
-                        }
-                    }
-                }
+                name = "+ '"' + characterName + '"' + @";
+                health = 100;
+                attackStrength = new Random().Next(1,maxPower);
+                defensivePower = new Random().Next(1,maxPower);
+                attackBonusPlayer = "+ '"' + attackBonusAgainst + '"' + @";
+                Weapon = new " + weaponType + @"();
+            }
+        }
+    }
             ";
 
             File.WriteAllText("./CharacterClasses/" + className + ".cs", classCode);
@@ -111,18 +112,18 @@ namespace PA4.Utilities
             
             string classCode = 
             @"
-            using PA4.Interfaces;
+using PA4.Interfaces;
 
-            namespace PA4.Attacks
-            {
-                public class " + weaponName + @" : ISpecial
-                {
-                    public void Attack()
-                    {
-                        System.Console.Write(" +'"' + " " + attackText + " " + '"' + @");
-                    }
-                }
-            }
+namespace PA4.Attacks
+{
+    public class " + weaponName + @" : ISpecial
+    {
+        public void Attack()
+        {
+            System.Console.Write(" +'"' + " " + attackText + " " + '"' + @");
+        }
+    }
+}
             ";
 
             File.WriteAllText("./Attacks/" + className + ".cs", classCode);

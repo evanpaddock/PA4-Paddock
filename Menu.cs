@@ -39,16 +39,17 @@ namespace PA4
             GamePlay.RunOption(choice);
         }
         static private void TitleScreen(){
-            string titleArt = @"
-######                                                        #####                                           ###          #     #                                                        
-#     #   ##   ##### ##### #      ######     ####  ######    #     #   ##   #      #   # #####   ####   ####  ###  ####    ##   ##   ##   ###### #       ####  ##### #####   ####  #    #
-#     #  #  #    #     #   #      #         #    # #         #        #  #  #       # #  #    # #      #    #  #  #        # # # #  #  #  #      #      #        #   #    # #    # ##  ##
-######  #    #   #     #   #      #####     #    # #####     #       #    # #        #   #    #  ####  #    # #    ####    #  #  # #    # #####  #       ####    #   #    # #    # # ## #
-#     # ######   #     #   #      #         #    # #         #       ###### #        #   #####       # #    #          #   #     # ###### #      #           #   #   #####  #    # #    # 
-#     # #    #   #     #   #      #         #    # #         #     # #    # #        #   #      #    # #    #     #    #   #     # #    # #      #      #    #   #   #   #  #    # #    #
-######  #    #   #     #   ###### ######     ####  #          #####  #    # ######   #   #       ####   ####       ####    #     # #    # ###### ######  ####    #   #    #  ####  #    #
-";
-            Console.SetCursorPosition((Console.WindowWidth - 185)/2, Console.WindowTop);
+//             string titleArt = @"
+// ######                                                        #####                                           ###          #     #                                                        
+// #     #   ##   ##### ##### #      ######     ####  ######    #     #   ##   #      #   # #####   ####   ####  ###  ####    ##   ##   ##   ###### #       ####  ##### #####   ####  #    #
+// #     #  #  #    #     #   #      #         #    # #         #        #  #  #       # #  #    # #      #    #  #  #        # # # #  #  #  #      #      #        #   #    # #    # ##  ##
+// ######  #    #   #     #   #      #####     #    # #####     #       #    # #        #   #    #  ####  #    # #    ####    #  #  # #    # #####  #       ####    #   #    # #    # # ## #
+// #     # ######   #     #   #      #         #    # #         #       ###### #        #   #####       # #    #          #   #     # ###### #      #           #   #   #####  #    # #    # 
+// #     # #    #   #     #   #      #         #    # #         #     # #    # #        #   #      #    # #    #     #    #   #     # #    # #      #      #    #   #   #   #  #    # #    #
+// ######  #    #   #     #   ###### ######     ####  #          #####  #    # ######   #   #       ####   ####       ####    #     # #    # ###### ######  ####    #   #    #  ####  #    #
+// ";       
+            string titleArt = "Battle of Calypso's Maelstrom";
+            
             System.Console.WriteLine(titleArt);
         }
         static public bool ValidMainMenuOption(string choice){
@@ -104,6 +105,8 @@ namespace PA4
             string choice =  Console.ReadLine();
 
             while(ValidThreeMenuOption(choice)){
+                Console.Clear();
+                
                 System.Console.WriteLine("\nInvalid choice, please choose again.");
                 System.Console.WriteLine("1: Attack");
                 System.Console.WriteLine("2: Defend");

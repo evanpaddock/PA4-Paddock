@@ -58,8 +58,6 @@ namespace PA4
                     Console.Clear();
                     System.Console.WriteLine("Thank you for playing!");
                 break;
-
-                
             }
         }
         private static void PvAi()
@@ -67,11 +65,8 @@ namespace PA4
             string player1Name = "";
             SinglePlayerName(ref player1Name);
 
-
-            string player1Character = "";
-
             System.Console.Write(player1Name + ", ");
-            ChooseYourCharacter(ref player1Character);
+            string player1Character = ChooseYourCharacter();
 
             Character p1Character = CreateCharacter(player1Character);
 
@@ -94,20 +89,41 @@ namespace PA4
 
             TwoPlayerNames(ref player1, ref player2);
 
-            
+            System.Console.WriteLine(player1 + ",\n");
+            string p1CName = ChooseYourCharacter();
 
+            FightData.player1Name = player1;
+            FightData.player1Character = CreateCharacter(p1CName);
+
+            Console.Clear();
+
+            System.Console.WriteLine(player2 + ",\n");
+            string p2CName = ChooseYourCharacter();
+
+            FightData.player2Name = player2;
+            FightData.player2Character = CreateCharacter(p2CName);            
+
+            Fight();
 
         }
         private static void AiVsAi()
         {
-            System.Console.WriteLine("Ai vs Ai");
+            FightData.player1Name = "AI";
+            FightData.player2Name = "AI";
+
+            FightData.player1Character = AiCreateCharacter();
+            do{
+                FightData.player2Character = AiCreateCharacter();
+            }while(FightData.player1Character.name == FightData.player2Character.name);
+
+            Fight();
         }
-        private static void ChooseYourCharacter(ref string choice){
+        private static string ChooseYourCharacter(){
 
             System.Console.WriteLine("Choose your character wisely!\n");
             CharacterUtility.WriteAllCharacters();
 
-            choice = Console.ReadLine();
+            string choice = Console.ReadLine();
 
             bool isNotValid = CharacterUtility.IsValidCharacter(choice);
             while(isNotValid){
@@ -118,6 +134,8 @@ namespace PA4
                 choice = Console.ReadLine();
                 isNotValid = CharacterUtility.IsValidCharacter(choice);;
             }
+
+            return choice;
 
             Console.Clear();
         }
@@ -152,19 +170,47 @@ namespace PA4
                 FightData.player2Character.attackStrength += FightData.player2Character.attackStrength / 5;
             }
 
-            while(FightData.player1Character.health > 0 && FightData.player2Character.health > 0){
-                System.Console.WriteLine(FightData.player1Name + ", choose what you will do.\n");
-                choice = Menu.FightMenu();
-                RunFightSelection(choice, FightData.player1Character, FightData.player2Character);
-                if(FightData.player2Name != "AI"){
-                    System.Console.WriteLine(FightData.player2Name + ", choose what you will do.\n");
-                    choice = Menu.FightMenu();
-                    RunFightSelection(choice, FightData.player2Character, FightData.player1Character);
-                }else{
-                    
+            while(FightData.player1Character.health >= 0 && FightData.player2Character.health >= 0){ 
+
+                Console.Clear();
+                
+                if(FightData.player1Name == "AI"){
+                    choice = "1";
+                    RunFightSelection(choice, FightData.player1Character, FightData.player2Character);              
+                }else if(FightData.player1Character.health > 0){
+                    do{
+                        Console.Clear();
+                        System.Console.WriteLine(FightData.player1Name + ", ");
+                        choice = Menu.FightMenu();
+                        RunFightSelection(choice, FightData.player1Character, FightData.player2Character);
+                    }while(choice ==  "3");    
                 }
+                
+                Console.Clear();
+
+                if(FightData.player2Name == "AI"){
+                    choice = "1";
+                    RunFightSelection(choice, FightData.player2Character, FightData.player1Character);
+                }else if(FightData.player2Character.health > 0){
+                    do{
+                        Console.Clear();
+                        System.Console.WriteLine(FightData.player2Name + ", ");
+                        choice = Menu.FightMenu();
+                        RunFightSelection(choice, FightData.player2Character, FightData.player1Character);
+                    }while(choice == "3");  
+                }
+                
             }
-            
+
+            Console.Clear();
+
+            if(FightData.player1Character.health <= 0){
+                System.Console.WriteLine($"PLAYER 2 WINS!");
+            }else{
+                System.Console.WriteLine($"PLAYER 1 WINS!");
+            }
+
+            Console.ReadKey();
         }
         private static void RunFightSelection(string choice, Character attacker, Character defender){
             Console.Clear();
@@ -194,10 +240,8 @@ namespace PA4
         }
         private static void Defend(Character character1)
         {
-            // int defenseGained = 
-            // System.Console.WriteLine("Gains 20 defen");
-            // character1.defensivePower += new Random().Next(1,31);
-            // Console.ReadKey();
+            System.Console.WriteLine(character1.name + " decided to defend!");
+            Console.ReadKey();
         }
         private static void Attack(Character attacker, Character defender)
         {
