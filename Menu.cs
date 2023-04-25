@@ -78,8 +78,6 @@ namespace PA4
                     return false;
                 case "2":
                     return false;
-                case "3":
-                    return false;
                 default:
                     return true; 
             }
@@ -100,8 +98,7 @@ namespace PA4
         } 
         static public string FightMenu(){
             System.Console.WriteLine("1: Attack");
-            System.Console.WriteLine("2: Defend");
-            System.Console.WriteLine("3: View Characters Stats");
+            System.Console.WriteLine("2: View Characters Stats");
             string choice =  Console.ReadLine();
 
             while(ValidThreeMenuOption(choice)){
@@ -109,8 +106,7 @@ namespace PA4
                 
                 System.Console.WriteLine("\nInvalid choice, please choose again.");
                 System.Console.WriteLine("1: Attack");
-                System.Console.WriteLine("2: Defend");
-                System.Console.WriteLine("3: View Characters Stats");
+                System.Console.WriteLine("2: View Characters Stats");
 
                 choice =  Console.ReadLine();
             }

@@ -6,7 +6,7 @@ namespace PA4.Classes
     public class JackSparrow : Character
     {
         public JackSparrow(){
-            name = "Will Turner";
+            name = "Jack Sparrow";
             health = 100;
             attackStrength = new Random().Next(1,maxPower);
             defensivePower = new Random().Next(1,maxPower);

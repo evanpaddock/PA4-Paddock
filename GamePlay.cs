@@ -183,7 +183,7 @@ namespace PA4
                         System.Console.WriteLine(FightData.player1Name + ", ");
                         choice = Menu.FightMenu();
                         RunFightSelection(choice, FightData.player1Character, FightData.player2Character);
-                    }while(choice ==  "3");    
+                    }while(choice != "1");    
                 }
                 
                 Console.Clear();
@@ -197,7 +197,7 @@ namespace PA4
                         System.Console.WriteLine(FightData.player2Name + ", ");
                         choice = Menu.FightMenu();
                         RunFightSelection(choice, FightData.player2Character, FightData.player1Character);
-                    }while(choice == "3");  
+                    }while(choice != "1");  
                 }
                 
             }
@@ -219,9 +219,6 @@ namespace PA4
                 Attack(attacker, defender);
             break;
             case "2":
-                Defend(attacker);
-            break;
-            case "3":
                 Stats();
             break;
            } 
@@ -238,11 +235,6 @@ namespace PA4
 
             Console.ReadKey();
         }
-        private static void Defend(Character character1)
-        {
-            System.Console.WriteLine(character1.name + " decided to defend!");
-            Console.ReadKey();
-        }
         private static void Attack(Character attacker, Character defender)
         {
             Console.Write(attacker.name);
@@ -255,7 +247,7 @@ namespace PA4
                 System.Console.WriteLine($"That dealt {Math.Abs(damageDealt)} damage!");
                 defender.health += damageDealt;
             }else{
-                System.Console.WriteLine("The attack was not strong enough to do damage!");
+                System.Console.WriteLine($"{defender.name} blocks the attack!");
             }
             
             Console.ReadKey();
